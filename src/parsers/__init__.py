@@ -11,3 +11,4 @@ from src.parsers.universities.MPOLITECH import MpolitechParser
 from src.parsers.universities.MTUCI import MtuciParser
 from src.parsers.universities.SPBSU import SpbsuParser
 from src.parsers.universities.VSE import VseParser
+from src.parsers.universities.RSMU import RsmuParser
