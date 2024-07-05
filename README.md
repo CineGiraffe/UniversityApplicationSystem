@@ -29,3 +29,4 @@ docker run \
     -e TYPE=FULL \
     generate_report:0.1
 ```
+
