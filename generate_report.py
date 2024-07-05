@@ -17,14 +17,14 @@ print("Preparing system for report generation...")
 service = ApplicationService()
 visualizer = DataVisualizer(service)
 
-print(f"Loading data from '{args.data_dir}'...")
+print("Loading data from '{args.data_dir}'...")
 loader = DataLoader(service)
 loader.load_data(args.data_dir)
 
 report_type = ReportType[args.type]
-print(f"Generating report for student [id={args.student_id}]...")
+print("Generating report for student [id={args.student_id}]...")
 
 if visualizer.get_report_for(StudentId(args.student_id), report_type, output_dir=args.output_dir):
-    print(f"Report successfully generated for student [id={args.student_id}].")
+    print("Report successfully generated for student [id={args.student_id}].")
 else:
-    print(f"Report was not generated for student [id={args.student_id}].")
+    print("Report was not generated for student [id={args.student_id}].")

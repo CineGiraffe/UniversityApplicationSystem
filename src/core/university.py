@@ -15,6 +15,7 @@ class University(Enum):
     MIET = 'МИЭТ'
     ITMO = 'ИТМО'
     SPBSU = 'СПБГУ'
+    RSMU = 'Пироговка'
 
     def __repr__(self):
         return self.__str__()

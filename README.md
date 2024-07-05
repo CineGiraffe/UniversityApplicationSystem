@@ -8,8 +8,8 @@ Instructions:
 
 ### Python script to generate report
 ``` commandline
-python generate_report.py \
-    --student_id '185-597-938 50' \
+python3 generate_report.py \
+    --student_id '168-871-651 27' \
     --data_dir ./data/ \
     --type FULL \
     --output_dir ./reports/

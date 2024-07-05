@@ -10,7 +10,7 @@ class RsmuParser(CsvParser):
         return University.RSMU
 
     def _headers_mapping(self, file_extension: FileExtension) -> HeadersMapping:
-        return HeadersMapping('Уникальный код', 'Общая сумма баллов', 'Оригинал в вузе')
+        return HeadersMapping('SNILS', 'Общая сумма баллов', 'Оригинал в вузе')
 
     def _parse_student_id(self, raw_id: str) -> StudentId:
         if match('[1-9][0-9]{2}-[0-9]{3}-[0-9]{3} [0-9]{2}', raw_id):
@@ -19,13 +19,16 @@ class RsmuParser(CsvParser):
             raise Exception("found incompatible id", raw_id)
 
     def _parse_dormitory_requirement(self, raw_value: str) -> bool:
-        # dummy details in file (just auto set True)
-        return True
+        # not provided
+        return False
 
     def _parse_agreement_submission(self, raw_value: str) -> bool:
-        if raw_value == 'Yes':
+        if raw_value == '✓':
             return True
-        elif raw_value == 'No':
+        elif raw_value == '':
             return False
         else:
             raise Exception("found incompatible agreement", raw_value)
+
+    def _delimiter(self) -> chr:
+        return ','

@@ -10,8 +10,7 @@ class VseParser(CsvParser):
         return University.VSE
 
     def _headers_mapping(self, file_extension: FileExtension) -> HeadersMapping:
-        return HeadersMapping('СНИЛС / Уникальный идентификатор', 'Сумма конкурсных баллов',
-                              'Заявление о согласии на зачисление')
+        return HeadersMapping('СНИЛС / Уникальный идентификатор', 'Сумма конкурсных баллов', 'Оригинал аттестата')
 
     def _parse_student_id(self, raw_id: str) -> StudentId:
         if match('[1-9][0-9]{2}-[0-9]{3}-[0-9]{3} [0-9]{2}', raw_id):
@@ -24,9 +23,9 @@ class VseParser(CsvParser):
         return False
 
     def _parse_agreement_submission(self, raw_value: str) -> bool:
-        if raw_value == 'Yes':
+        if raw_value == 'Да':
             return True
-        elif raw_value == 'No':
+        elif raw_value == 'Нет':
             return False
         else:
             raise Exception("found incompatible agreement", raw_value)
